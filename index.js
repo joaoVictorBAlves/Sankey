@@ -2,6 +2,81 @@
 const width = 1000;
 const height = 270;
 
+const data = [
+    {
+        id: "A1",
+        name: "Ernesto",
+        class: "522",
+        distribuition_green: 0,
+        distribuition_yellow: 1,
+        distribuition_red: 1,
+    },
+    {
+        id: "A2",
+        name: "George Gomes",
+        class: "522",
+        distribuition_green: 3,
+        distribuition_yellow: 0,
+        distribuition_red: 0,
+    },
+    {
+        id: "A3",
+        name: "Melo Jr",
+        class: "522",
+        distribuition_green: 0,
+        distribuition_yellow: 2,
+        distribuition_red: 1,
+    },
+    {
+        id: 'Q1',
+        content: "Quanto é 50% de 1/2?",
+        abilities: ["K1"],
+        distribuition_green: 1,
+        distribuition_yellow: 0,
+        distribuition_red: 2,
+    },
+    {
+        id: 'Q2',
+        content: "Quanto é 1 + 1?",
+        abilities: ["K1", "K2"],
+        distribuition_green: 1,
+        distribuition_yellow: 1,
+        distribuition_red: 0,
+    },
+    {
+        id: 'Q3',
+        content: "Se a mesa de jantar tem 2m de largura e 1m de comprimento, qual o volume da sala?",
+        abilities: ["K3"],
+        distribuition_green: 1,
+        distribuition_yellow: 2,
+        distribuition_red: 0,
+    },
+    {
+        id: "K1",
+        name: "Razão e proporção",
+        skill_usage_ratio: "66%",
+        distribuition_green: 2,
+        distribuition_yellow: 1,
+        distribuition_red: 2,
+    },
+    {
+        id: "K2",
+        name: "Operções básicas",
+        skill_usage_ratio: "33%",
+        distribuition_green: 1,
+        distribuition_yellow: 1,
+        distribuition_red: 0,
+    },
+    {
+        id: "K3",
+        name: "Adivinhação",
+        skill_usage_ratio: "33%",
+        distribuition_green: 1,
+        distribuition_yellow: 2,
+        distribuition_red: 0,
+    },
+]
+
 const nodes = [
     { id: "A1" },
     { id: "A2" },
@@ -13,6 +88,7 @@ const nodes = [
     { id: "K2" },
     { id: "K3" }
 ];
+
 const links = [
     { source: "A1", target: "Q1", value: 1, qtd: null },
     { source: "A1", target: "Q3", value: 2, qtd: null },
@@ -313,6 +389,7 @@ function maxWeight(nodes) {
     });
     return [maxNode, minWeight];
 }
+
 function drawSankey(nodes, links, filteredNodes, filteredLinks) {
     d3.select("#sankeyDiagram").selectAll("*").remove();
 
@@ -340,7 +417,8 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
         .attr("width", d => d.x1 - d.x0)
         .attr("height", d => d.y1 - d.y0)
         .on("mouseover", handleNodeMouseOver)
-        .on("mouseout", handleNodeMouseOut);
+        .on("mouseout", handleNodeMouseOut)
+        .on("click", handleNodeClick)
 
     if (filteredLinks)
         svg.selectAll(".node2")
@@ -383,6 +461,9 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
                 const height = Math.max(...Ys1) - Math.min(...Ys0)
                 return height;
             })
+            .on("mouseover", handleNodeMouseOver)
+            .on("mouseout", handleNodeMouseOut)
+            .on("click", handleNodeClick)
 
     // Adicionando texto aos nós
     const nodeTexts = svg.selectAll(".node-text")
@@ -393,7 +474,11 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
         .attr("y", d => (d.y0 + d.y1) / 2)
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
-        .text(d => d.id);
+        .style("cursor", "pointer")
+        .text(d => d.id)
+        .on("mouseover", handleNodeMouseOver)
+        .on("mouseout", handleNodeMouseOut)
+        .on("click", handleNodeClick)
 
     // Importante: Adicione a função curveBasis do D3.js
     const line = d3.line().curve(d3.curveBasis);
@@ -470,11 +555,11 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
 
 
 
-            // Exibir dados sobre o nó
-            tooltip.style("opacity", 0.9)
-                .html(`<h1>Detalhes</h1>Link: ${link.source.id}⭢${link.target.id}<br>Valor: ${link.value}`)
-                .style("left", d3.event?.pageX + 10 + "px")
-                .style("top", d3.event?.pageY - 28 + "px");
+            // // Exibir dados sobre o nó
+            // tooltip.style("opacity", 0.9)
+            //     .html(`<h1>Detalhes</h1>Link: ${link.source.id}⭢${link.target.id}<br>Valor: ${link.value}`)
+            //     .style("left", d3.event?.pageX + 10 + "px")
+            //     .style("top", d3.event?.pageY - 28 + "px");
 
         })
         .on("mouseout", function (d) {
@@ -511,18 +596,127 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
             })
 
             // Ocultar o tooltip
-            tooltip.style("opacity", 0);
+            // tooltip.style("opacity", 0);
         })
 
     // Criar o tooltip
-    const tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
+    // const tooltip = d3.select("body").append("div")
+    //     .attr("class", "tooltip")
+    //     .style("opacity", 0);
+
+    const details = d3.select("body").append("div")
+        .attr("class", "details")
         .style("opacity", 0);
+
+    function handleNodeClick(d) {
+        console.log(d.target.__data__.id);
+        const info = data.find(x => x.id == d.target.__data__.id);
+        console.log(info);
+        if (info.id[0] == "A")
+            details.style("opacity", 0.9)
+                .html(`
+                    <h1>Student ${info.id}</h1>
+                    <div>
+                    <span style="margin-bottom: 2px"><strong>Name:</strong> ${info.name}</span>
+                    <span><strong>Class:</strong> ${info.class}</span>
+                    </div>
+                    <span id="dist">Performance distribution:</span>
+                    <svg id="piechart" width="200" height="200"></svg>
+                `)
+        else if (info.id[0] == "Q")
+            details.style("opacity", 0.9)
+                .html(`
+                    <h1>Question ${info.id}</h1>
+                    <div>
+                    <span style="margin-bottom: 2px"><strong>Content:</strong> ${info.content}</span>
+                    <span><strong>Abilities:</strong> ${info.abilities}</span>
+                    </div>
+                    <span id="dist">Answers distribution:</span>
+                    <svg id="piechart" width="200" height="200"></svg>
+                `)
+        else if (info.id[0] == "K")
+            details.style("opacity", 0.9)
+                .html(`
+                    <h1>Ability ${info.id}</h1>
+                    <div>
+                    <span style="margin-bottom: 2px"><strong>Name:</strong> ${info.name}</span>
+                    <span><strong>Skill Usage Ratio:</strong> ${info.skill_usage_ratio}</span>
+                    </div>
+                    <span id="dist">Answers distribution:</span>
+                    <svg id="piechart" width="200" height="200"></svg>
+                `)
+        details
+            .style("position", "absolute")
+            .style("top", `${d.clientY}px`)
+            .style("left", `${d.pageX}px`);
+
+
+        const width = 100;
+        const height = 100;
+        const radius = Math.min(width, height) / 2;
+
+        const dataChart = [
+            { label: 'Green', value: info.distribuition_green },
+            { label: 'Yellow', value: info.distribuition_yellow },
+            { label: 'Red', value: info.distribuition_red }
+        ];
+
+        const filteredData = dataChart.filter(d => d.value > 0);
+        const total = filteredData.reduce((sum, d) => sum + d.value, 0);
+
+        const color = d3.scaleOrdinal()
+            .domain(dataChart.map(d => d.label))
+            .range(['#9AD96C', '#F2CC85', '#F27777']);
+
+        const pie = d3.pie()
+            .value(d => d.value);
+
+        const arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+
+        const svg = d3.select("#piechart")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+        const arcs = svg.selectAll(".arc")
+            .data(pie(filteredData))
+            .enter()
+            .append("g")
+            .attr("class", "arc");
+
+        arcs.append("path")
+            .attr("d", arc)
+            .attr("fill", d => color(d.data.label));
+
+        if (filteredData.length > 1) {
+            arcs.append("text")
+                .attr("transform", d => `translate(${arc.centroid(d)})`)
+                .attr("dy", "0.35em")
+                .attr("text-anchor", "middle")
+                .style("font-size", "10px")
+                .style("fill", "#000")
+                .text(d => `${Math.round((d.data.value / total) * 100)}%`);
+        } else if (filteredData.length === 1) {
+            svg.append("text")
+                .attr("transform", `translate(0, 0)`)
+                .attr("dy", "0.35em")
+                .attr("text-anchor", "middle")
+                .style("font-size", "10px")
+                .style("fill", "#000")
+                .text(`${Math.round((filteredData[0].value / total) * 100)}%`);
+        }
+    }
+
+
 
 
     function handleNodeMouseOver(d) {
         d3.select(this)
-            .style("opacity", "2");
+            .style("opacity", "2")
+            .style("cursor", "pointer")
 
 
         const node = d.target.__data__;
@@ -585,14 +779,15 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
         // })
 
 
-        // Exibir dados sobre o nó
-        tooltip.style("opacity", 0.9)
-            .html(`<h1>Detalhes</h1>ID: ${node.id}<br>Valor: ${node.value}`)
-        // Exibir dados sobre o nó
-        tooltip.style("opacity", 0.9)
-            .html(`<h1>Detalhes</h1>Link: ${link.source.id}⭢${link.target.id}<br>Valor: ${link.value}`)
-            .style("left", d3.event?.pageX + 10 + "px")
-            .style("top", d3.event?.pageY - 28 + "px");
+        // // Exibir dados sobre o nó
+        // tooltip.style("opacity", 0.9)
+        //     .html(`<h1>Detalhes</h1>ID: ${node.id}<br>Valor: ${node.value}`)
+        // // Exibir dados sobre o nó
+        // tooltip.style("opacity", 0.9)
+        //     .html(`<h1>Detalhes</h1>Link: ${link.source.id}⭢${link.target.id}<br>Valor: ${link.value}`)
+        //     .style("left", d3.event?.pageX + 10 + "px")
+        //     .style("top", d3.event?.pageY - 28 + "px");
+
     }
 
     function handleNodeMouseOut(d) {
@@ -648,13 +843,12 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
                 return finalNodes.includes(n);
             }).style("opacity", "0.7");
         })
-        // Ocultar o tooltip
-        tooltip.style("opacity", 0);
+        // // Ocultar o tooltip
+        details.style("opacity", 0);
     }
 }
 
 // Run somethings
-
 mapSankey(nodes, links, width, height, 20);
 drawSankey(nodes, links);
 

@@ -30,6 +30,32 @@
             /* Opacidade dos nós */
         }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #ddd;
+        }
+
         .link {
             stroke-opacity: 0.65;
         }
@@ -268,6 +294,30 @@
             </div>
         </div>
         <svg id="sankeyDiagram"></svg>
+        <table style="display: none;">
+            <thead>
+                <tr id="trHeadAluno" style="display: none;">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Mean</th>
+                    <th>Performance</th>
+                </tr>
+                <tr id="trHeadQuestao" style="display: none;">
+                    <th>ID</th>
+                    <th>Content</th>
+                    <th>Abilities</th>
+                    <th>Answers Distribuition</th>
+                </tr>
+                <tr id="trHeadHabilidade" style="display: none;">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Skill Usage Ratio</th>
+                    <th>Answers Distribuition</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
 
 
     </div>

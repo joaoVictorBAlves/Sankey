@@ -1,8 +1,8 @@
 // Data
 const width = 1000;
-const height = 300;
+const height = 1200;
 
-const mod = 20;
+const mod = 5;
 
 const data = [
     {
@@ -83,41 +83,35 @@ const nodes = [
     { id: "A1" },
     { id: "A2" },
     { id: "A3" },
+    { id: "A4" },
+    { id: "A5" },
+    { id: "A6" },
+    { id: "A7" },
+    { id: "A8" },
+    { id: "A9" },
+    { id: "A10" },
     { id: "Q1" },
     { id: "Q2" },
     { id: "Q3" },
+    { id: "Q4" },
+    { id: "Q5" },
+    { id: "Q6" },
+    { id: "Q7" },
+    { id: "Q8" },
+    { id: "Q9" },
+    { id: "Q10" },
     { id: "K1" },
     { id: "K2" },
     { id: "K3" }
 ];
 
-const links = [
-    { source: "A1", target: "Q1", value: 1, qtd: null },
-    { source: "A1", target: "Q3", value: 2, qtd: null },
-    { source: "A2", target: "Q1", value: 3, qtd: null },
-    { source: "A2", target: "Q2", value: 3, qtd: null },
-    { source: "A2", target: "Q3", value: 3, qtd: null },
-    { source: "A3", target: "Q2", value: 2, qtd: null },
-    { source: "A3", target: "Q1", value: 1, qtd: null },
-    { source: "A3", target: "Q3", value: 2, qtd: null },
-    { source: "Q1", target: "K1", value: 1, qtd: 2 },
-    { source: "Q1", target: "K1", value: 3, qtd: 1 },
-    { source: "Q2", target: "K1", value: 2, qtd: 1 },
-    { source: "Q2", target: "K1", value: 3, qtd: 1 },
-    { source: "Q2", target: "K2", value: 2, qtd: 1 },
-    { source: "Q2", target: "K2", value: 3, qtd: 1 },
-    { source: "Q3", target: "K3", value: 2, qtd: 2 },
-    { source: "Q3", target: "K3", value: 3, qtd: 1 },
-];
+const links = [{ source: "A1", target: "Q1", value: 3, qtd: null }, { source: "A1", target: "Q2", value: 2, qtd: null }, { source: "A1", target: "Q3", value: 1, qtd: null }, { source: "A1", target: "Q4", value: 3, qtd: null }, { source: "A1", target: "Q5", value: 3, qtd: null }, { source: "A1", target: "Q6", value: 3, qtd: null }, { source: "A1", target: "Q7", value: 1, qtd: null }, { source: "A1", target: "Q8", value: 2, qtd: null }, { source: "A1", target: "Q9", value: 1, qtd: null }, { source: "A1", target: "Q10", value: 3, qtd: null }, { source: "A2", target: "Q1", value: 2, qtd: null }, { source: "A2", target: "Q2", value: 3, qtd: null }, { source: "A2", target: "Q3", value: 3, qtd: null }, { source: "A2", target: "Q4", value: 3, qtd: null }, { source: "A2", target: "Q5", value: 2, qtd: null }, { source: "A2", target: "Q6", value: 3, qtd: null }, { source: "A2", target: "Q7", value: 2, qtd: null }, { source: "A2", target: "Q8", value: 2, qtd: null }, { source: "A2", target: "Q9", value: 2, qtd: null }, { source: "A2", target: "Q10", value: 2, qtd: null }, { source: "A3", target: "Q1", value: 2, qtd: null }, { source: "A3", target: "Q2", value: 3, qtd: null }, { source: "A3", target: "Q3", value: 1, qtd: null }, { source: "A3", target: "Q4", value: 2, qtd: null }, { source: "A3", target: "Q5", value: 2, qtd: null }, { source: "A3", target: "Q6", value: 1, qtd: null }, { source: "A3", target: "Q7", value: 3, qtd: null }, { source: "A3", target: "Q8", value: 2, qtd: null }, { source: "A3", target: "Q9", value: 1, qtd: null }, { source: "A3", target: "Q10", value: 2, qtd: null }, { source: "A4", target: "Q1", value: 2, qtd: null }, { source: "A4", target: "Q2", value: 2, qtd: null }, { source: "A4", target: "Q3", value: 3, qtd: null }, { source: "A4", target: "Q4", value: 3, qtd: null }, { source: "A4", target: "Q5", value: 3, qtd: null }, { source: "A4", target: "Q6", value: 3, qtd: null }, { source: "A4", target: "Q7", value: 1, qtd: null }, { source: "A4", target: "Q8", value: 3, qtd: null }, { source: "A4", target: "Q9", value: 3, qtd: null }, { source: "A4", target: "Q10", value: 2, qtd: null }, { source: "A5", target: "Q1", value: 3, qtd: null }, { source: "A5", target: "Q2", value: 2, qtd: null }, { source: "A5", target: "Q3", value: 2, qtd: null }, { source: "A5", target: "Q4", value: 1, qtd: null }, { source: "A5", target: "Q5", value: 2, qtd: null }, { source: "A5", target: "Q6", value: 2, qtd: null }, { source: "A5", target: "Q7", value: 3, qtd: null }, { source: "A5", target: "Q8", value: 1, qtd: null }, { source: "A5", target: "Q9", value: 3, qtd: null }, { source: "A5", target: "Q10", value: 3, qtd: null }, { source: "A6", target: "Q1", value: 2, qtd: null }, { source: "A6", target: "Q2", value: 3, qtd: null }, { source: "A6", target: "Q3", value: 1, qtd: null }, { source: "A6", target: "Q4", value: 3, qtd: null }, { source: "A6", target: "Q5", value: 3, qtd: null }, { source: "A6", target: "Q6", value: 1, qtd: null }, { source: "A6", target: "Q7", value: 3, qtd: null }, { source: "A6", target: "Q8", value: 2, qtd: null }, { source: "A6", target: "Q9", value: 3, qtd: null }, { source: "A6", target: "Q10", value: 3, qtd: null }, { source: "A7", target: "Q1", value: 3, qtd: null }, { source: "A7", target: "Q2", value: 1, qtd: null }, { source: "A7", target: "Q3", value: 2, qtd: null }, { source: "A7", target: "Q4", value: 2, qtd: null }, { source: "A7", target: "Q5", value: 2, qtd: null }, { source: "A7", target: "Q6", value: 1, qtd: null }, { source: "A7", target: "Q7", value: 3, qtd: null }, { source: "A7", target: "Q8", value: 1, qtd: null }, { source: "A7", target: "Q9", value: 2, qtd: null }, { source: "A7", target: "Q10", value: 2, qtd: null }, { source: "A8", target: "Q1", value: 1, qtd: null }, { source: "A8", target: "Q2", value: 3, qtd: null }, { source: "A8", target: "Q3", value: 2, qtd: null }, { source: "A8", target: "Q4", value: 1, qtd: null }, { source: "A8", target: "Q5", value: 2, qtd: null }, { source: "A8", target: "Q6", value: 3, qtd: null }, { source: "A8", target: "Q7", value: 1, qtd: null }, { source: "A8", target: "Q8", value: 1, qtd: null }, { source: "A8", target: "Q9", value: 2, qtd: null }, { source: "A8", target: "Q10", value: 2, qtd: null }, { source: "A9", target: "Q1", value: 3, qtd: null }, { source: "A9", target: "Q2", value: 3, qtd: null }, { source: "A9", target: "Q3", value: 2, qtd: null }, { source: "A9", target: "Q4", value: 2, qtd: null }, { source: "A9", target: "Q5", value: 1, qtd: null }, { source: "A9", target: "Q6", value: 2, qtd: null }, { source: "A9", target: "Q7", value: 2, qtd: null }, { source: "A9", target: "Q8", value: 3, qtd: null }, { source: "A9", target: "Q9", value: 2, qtd: null }, { source: "A9", target: "Q10", value: 3, qtd: null }, { source: "A10", target: "Q1", value: 2, qtd: null }, { source: "A10", target: "Q2", value: 3, qtd: null }, { source: "A10", target: "Q3", value: 1, qtd: null }, { source: "A10", target: "Q4", value: 2, qtd: null }, { source: "A10", target: "Q5", value: 3, qtd: null }, { source: "A10", target: "Q6", value: 3, qtd: null }, { source: "A10", target: "Q7", value: 3, qtd: null }, { source: "A10", target: "Q8", value: 3, qtd: null }, { source: "A10", target: "Q9", value: 2, qtd: null }, { source: "A10", target: "Q10", value: 2, qtd: null }, { source: "Q1", target: "K1", value: 1, qtd: 1 }, { source: "Q1", target: "K1", value: 2, qtd: 5 }, { source: "Q1", target: "K1", value: 3, qtd: 4 }, { source: "Q2", target: "K2", value: 1, qtd: 1 }, { source: "Q2", target: "K2", value: 2, qtd: 3 }, { source: "Q2", target: "K2", value: 3, qtd: 6 }, { source: "Q3", target: "K2", value: 1, qtd: 4 }, { source: "Q3", target: "K2", value: 2, qtd: 4 }, { source: "Q3", target: "K2", value: 3, qtd: 2 }, { source: "Q4", target: "K3", value: 1, qtd: 2 }, { source: "Q4", target: "K3", value: 2, qtd: 4 }, { source: "Q4", target: "K3", value: 3, qtd: 4 }, { source: "Q5", target: "K1", value: 1, qtd: 1 }, { source: "Q5", target: "K1", value: 2, qtd: 5 }, { source: "Q5", target: "K1", value: 3, qtd: 4 }, { source: "Q6", target: "K3", value: 1, qtd: 3 }, { source: "Q6", target: "K3", value: 2, qtd: 2 }, { source: "Q6", target: "K3", value: 3, qtd: 5 }, { source: "Q7", target: "K2", value: 1, qtd: 3 }, { source: "Q7", target: "K2", value: 2, qtd: 2 }, { source: "Q7", target: "K2", value: 3, qtd: 5 }, { source: "Q8", target: "K3", value: 1, qtd: 3 }, { source: "Q8", target: "K3", value: 2, qtd: 4 }, { source: "Q8", target: "K3", value: 3, qtd: 3 }, { source: "Q9", target: "K2", value: 1, qtd: 2 }, { source: "Q9", target: "K2", value: 2, qtd: 5 }, { source: "Q9", target: "K2", value: 3, qtd: 3 }, { source: "Q10", target: "K1", value: 1, qtd: 0 }, { source: "Q10", target: "K1", value: 2, qtd: 6 }, { source: "Q10", target: "K1", value: 3, qtd: 4 }]
 
 let maxNode = 0;
 let minNode = 0;
 
 const aux_nodes = JSON.parse(JSON.stringify(nodes))
 const aux_links = JSON.parse(JSON.stringify(links))
-
-let selectedNode = null;
-
 
 // Functions
 function mapSankey(nodes, links, width, height, mod) {
@@ -428,7 +422,10 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
         .attr("x", d => d.x0)
         .attr("y", d => d.y0)
         .attr("width", d => d.x1 - d.x0)
-        .attr("height", d => d.y1 - d.y0);
+        .attr("height", d => d.y1 - d.y0)
+        .on("click", handleNodeMouseClick)
+        .on("mouseover", handleNodeMouseOver)
+        .on("mouseout", handleNodeMouseOut);
 
     // Adicionar os elementos rect .node2 aos grupos se filteredLinks for verdadeiro
     if (filteredLinks) {
@@ -469,7 +466,9 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
                 });
                 const height = Math.max(...Ys1) - Math.min(...Ys0)
                 return height;
-            });
+            }).on("click", handleNodeMouseClick)
+            .on("mouseover", handleNodeMouseOver)
+            .on("mouseout", handleNodeMouseOut);
     }
 
     // Adicionar os textos aos grupos
@@ -480,7 +479,9 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
         .style("cursor", "pointer")
-        .text(d => d.id);
+        .text(d => d.id).on("click", handleNodeMouseClick)
+        .on("mouseover", handleNodeMouseOver)
+        .on("mouseout", handleNodeMouseOut);
 
     // Importante: Adicione a função curveBasis do D3.js
     const line = d3.line().curve(d3.curveBasis);
@@ -595,7 +596,9 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
 
     function handleOpenDetail(d) {
         details.style("display", "block");
+        console.log(d.target.__data__.id);
         const info = data.find(x => x.id == d.target.__data__.id);
+        console.log(info);
         if (info.id[0] == "A")
             details.style("opacity", 0.9)
                 .html(`
@@ -700,7 +703,6 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
 
     function handleNodeMouseOver(d) {
         d3.select(this)
-            .select("rect")
             .style("opacity", "2")
             .style("cursor", "pointer")
 
@@ -755,17 +757,31 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
                 return finalNodes.includes(n);
             }).style("opacity", "2");
         })
+
+
+        // const posLinks = posNodes.map(node => {
+        //     if (node.id[0] == "A")
+        //         return node.sourceLinks
+        //     if (node.id[0] == "K")
+        //         return node.targetLinks;
+        //     return false;
+        // })
+
+
+        // // Exibir dados sobre o nó
+        // tooltip.style("opacity", 0.9)
+        //     .html(`<h1>Detalhes</h1>ID: ${node.id}<br>Valor: ${node.value}`)
+        // // Exibir dados sobre o nó
+        // tooltip.style("opacity", 0.9)
+        //     .html(`<h1>Detalhes</h1>Link: ${link.source.id}⭢${link.target.id}<br>Valor: ${link.value}`)
+        //     .style("left", d3.event?.pageX + 10 + "px")
+        //     .style("top", d3.event?.pageY - 28 + "px");
+
     }
 
     function handleNodeMouseOut(d) {
         d3.select(this)
-            .select("rect")
-            .style("opacity", "1.2");
-
-        d3.select(this)
-            .select("text")
-            .style("opacity", "5")
-            .raise();
+            .style("opacity", "0.7");
 
         handleCloseDetail()
 
@@ -820,128 +836,12 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
     }
 
     function handleNodeMouseClick(d) {
-        if (d.target.__data__.id == selectedNode?.id) {
-            nodeGroups.selectAll("rect")
-                .style("stroke", "none");
-            setTableData(null);
-
-        } else {
-            selectedNode = data.find(x => x.id == d.target.__data__.id);
-            setTableData(selectedNode);
-
-            nodeGroups.selectAll("rect")
-                .style("stroke", "none");
-
-            d3.select(this)
-                .select("rect")
-                .style("stroke", "black")
-                .style("stroke-width", "2px");
-        }
-
+        console.log("Clicked");
+        d3.select(this)
+            .select("rect")
+            .style("stroke", "black")
+            .style("stroke-width", "2px");
     }
-}
-
-function setTableData(data) {
-    const table = document.getElementById("tableBody");
-    table.parentElement.style.display = "none"
-
-    if (data) {
-        table.parentElement.style.display = "table"
-        if (table.firstChild)
-            table.removeChild(table.firstChild);
-
-
-        table.appendChild(document.createElement("tr"));
-        table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = data.id;
-
-        if (data.id[0] == "A") {
-            document.getElementById("trHeadAluno").style.display = "table-row";
-            document.getElementById("trHeadQuestao").style.display = "none";
-            document.getElementById("trHeadHabilidade").style.display = "none";
-            table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = data.name;
-            table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = data.class;
-            const qtdQuestions = nodes.filter(node => node.id[0] == "Q").length;
-            const sum = data.distribuition_green * 3 + data.distribuition_yellow * 2 + data.distribuition_red * 1;
-            table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = `${((sum / (qtdQuestions * 3)) * 100).toFixed(2)}%`;
-        }
-
-        if (data.id[0] == "Q") {
-            document.getElementById("trHeadAluno").style.display = "none";
-            document.getElementById("trHeadQuestao").style.display = "table-row";
-            document.getElementById("trHeadHabilidade").style.display = "none";
-            table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = data.content;
-            table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = data.abilities;
-        }
-
-        if (data.id[0] == "K") {
-            document.getElementById("trHeadAluno").style.display = "none";
-            document.getElementById("trHeadQuestao").style.display = "none";
-            document.getElementById("trHeadHabilidade").style.display = "table-row";
-            table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = data.name;
-            table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerText = data.skill_usage_ratio;
-        }
-
-        table.getElementsByTagName("tr")[0].appendChild(document.createElement("td")).innerHTML = `<svg id="chart" width="200" height="200"></svg>`;
-
-        const width = 100;
-        const height = 100;
-        const radius = Math.min(width, height) / 2;
-
-        const dataChart = [
-            { label: 'Green', value: data.distribuition_green },
-            { label: 'Yellow', value: data.distribuition_yellow },
-            { label: 'Red', value: data.distribuition_red }
-        ];
-
-        const filteredData = dataChart.filter(d => d.value > 0);
-        const total = filteredData.reduce((sum, d) => sum + d.value, 0);
-
-        const color = d3.scaleOrdinal()
-            .domain(dataChart.map(d => d.label))
-            .range(['#9AD96C', '#F2CC85', '#F27777']);
-
-        const pie = d3.pie()
-            .value(d => d.value);
-
-        const arc = d3.arc()
-            .innerRadius(0)
-            .outerRadius(radius);
-
-        const svg = d3.select("#chart")
-            .attr("width", width)
-            .attr("height", height)
-            .append("g")
-            .attr("transform", `translate(${width / 2}, ${height / 2})`);
-
-        const arcs = svg.selectAll(".arc")
-            .data(pie(filteredData))
-            .enter()
-            .append("g")
-            .attr("class", "arc");
-
-        arcs.append("path")
-            .attr("d", arc)
-            .attr("fill", d => color(d.data.label));
-
-        if (filteredData.length > 1) {
-            arcs.append("text")
-                .attr("transform", d => `translate(${arc.centroid(d)})`)
-                .attr("dy", "0.35em")
-                .attr("text-anchor", "middle")
-                .style("font-size", "10px")
-                .style("fill", "#000")
-                .text(d => `${Math.round((d.data.value / total) * 100)}%`);
-        } else if (filteredData.length === 1) {
-            svg.append("text")
-                .attr("transform", `translate(0, 0)`)
-                .attr("dy", "0.35em")
-                .attr("text-anchor", "middle")
-                .style("font-size", "10px")
-                .style("fill", "#000")
-                .text(`${Math.round((filteredData[0].value / total) * 100)}%`);
-        }
-    }
-
 }
 
 // Run somethings

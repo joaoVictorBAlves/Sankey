@@ -276,13 +276,39 @@ function mapSankey(nodes, links, width, height, mod) {
 
     // Iterar sobre os grupos de nós
     const groups = Object.values(nodeGroups);
+    const tams = [];
+    const tamsQ = [];
+    const tamsK = [];
+
+    nodes.filter(node => node.id[0] == 'A').forEach(node => {
+        let tam = new Set();
+        node.sourceLinks.forEach(link => {
+            tam.add(link.value);
+        })
+        tams.push(tam.size);
+    });
+    nodes.filter(node => node.id[0] == 'Q').forEach(node => {
+        const tam = [];
+        node.targetLinks.forEach(link => {
+            tam.push(link.value);
+        })
+        tamsQ.push(tam.length);
+    });
+    nodes.filter(node => node.id[0] == 'K').forEach(node => {
+        const tam = [];
+        node.targetLinks.forEach(link => {
+            tam.push(link.qtd);
+        })
+
+        tamsK.push(tam.reduce((acc, val) => acc + val, 0));
+    });
 
     groups.forEach((group, index) => {
         const x = (index === 0) ? x0 : (index === 1) ? x1 : x2;
         let y0 = 0;
 
         // Iterar sobre os nós do grupo
-        group.forEach(node => {
+        group.forEach((node, i) => {
             const isK = node.id[0] == 'K';
             const isQ = node.id[0] == 'Q';
             const linksQtd = () => {
@@ -305,44 +331,51 @@ function mapSankey(nodes, links, width, height, mod) {
             }
 
             if (isQ) {
-                let height = 0;
+                const heightLast = height - (tamsQ.reduce((acc, val) => acc + val, 0) * mod);
+
+                let auxHeight = 0;
 
                 if (node.sourceLinks) {
                     node.sourceLinks.sort((a, b) => a.value - b.value).forEach((link, i) => {
                         if (i === 0 || link.value !== node.sourceLinks[i - 1].value) {
-                            height += link.qtd * mod;
+                            auxHeight += link.qtd * mod;
                         }
                     });
                 }
 
-                const y1 = y0 + height;
+                const y1 = y0 + tamsQ[i] * mod;
 
                 node.x0 = x;
                 node.x1 = x + mod;
                 node.y0 = y0;
                 node.y1 = y1;
 
-                y0 = y1 + mod; // Adicionando gap de 10 entre os nós
+                y0 = y1 + heightLast / (group.length - 1);
 
             } else if (isK) {
-                let height = 0;
+                const heightLast = height - (tamsK.reduce((acc, val) => acc + val, 0) * mod);
+
+                let auxHeight = 0;
                 if (node.targetLinks)
                     node.targetLinks.forEach(link => {
-                        height += link.qtd * mod
+                        auxHeight += link.qtd * mod
                     })
 
-                const y1 = y0 + height;
+                const y1 = y0 + tamsK[i] * mod;
 
                 node.x0 = x;
                 node.x1 = x + mod;
                 node.y0 = y0;
                 node.y1 = y1;
 
-                y0 = y1 + mod; // Adicionando gap de 10 entre os nós
+                y0 = y1 + heightLast / (group.length - 1);
 
             }
             else {
-                const y1 = y0 + linksQtd() * mod;
+                //Here is the firts nodes 
+                const heightLast = height - (tams.reduce((acc, val) => acc + val, 0) * mod);
+
+                const y1 = y0 + tams[i] * mod;
 
                 // Atualizar os valores dos nós
                 node.x0 = x;
@@ -351,7 +384,7 @@ function mapSankey(nodes, links, width, height, mod) {
                 node.y1 = y1;
 
                 // Atualizar y0 para o próximo nó e considerar o gap
-                y0 = y1 + mod; // Adicionando gap de 10 entre os nós
+                y0 = y1 + heightLast / (group.length - 1);
             }
         });
     });

@@ -1,6 +1,6 @@
 // Data
 const width = 1000;
-const height = 1200;
+const height = 600;
 
 const mod = 5;
 
@@ -105,7 +105,788 @@ const nodes = [
     { id: "K3" }
 ];
 
-const links = [{ source: "A1", target: "Q1", value: 3, qtd: null }, { source: "A1", target: "Q2", value: 2, qtd: null }, { source: "A1", target: "Q3", value: 1, qtd: null }, { source: "A1", target: "Q4", value: 3, qtd: null }, { source: "A1", target: "Q5", value: 3, qtd: null }, { source: "A1", target: "Q6", value: 3, qtd: null }, { source: "A1", target: "Q7", value: 1, qtd: null }, { source: "A1", target: "Q8", value: 2, qtd: null }, { source: "A1", target: "Q9", value: 1, qtd: null }, { source: "A1", target: "Q10", value: 3, qtd: null }, { source: "A2", target: "Q1", value: 2, qtd: null }, { source: "A2", target: "Q2", value: 3, qtd: null }, { source: "A2", target: "Q3", value: 3, qtd: null }, { source: "A2", target: "Q4", value: 3, qtd: null }, { source: "A2", target: "Q5", value: 2, qtd: null }, { source: "A2", target: "Q6", value: 3, qtd: null }, { source: "A2", target: "Q7", value: 2, qtd: null }, { source: "A2", target: "Q8", value: 2, qtd: null }, { source: "A2", target: "Q9", value: 2, qtd: null }, { source: "A2", target: "Q10", value: 2, qtd: null }, { source: "A3", target: "Q1", value: 2, qtd: null }, { source: "A3", target: "Q2", value: 3, qtd: null }, { source: "A3", target: "Q3", value: 1, qtd: null }, { source: "A3", target: "Q4", value: 2, qtd: null }, { source: "A3", target: "Q5", value: 2, qtd: null }, { source: "A3", target: "Q6", value: 1, qtd: null }, { source: "A3", target: "Q7", value: 3, qtd: null }, { source: "A3", target: "Q8", value: 2, qtd: null }, { source: "A3", target: "Q9", value: 1, qtd: null }, { source: "A3", target: "Q10", value: 2, qtd: null }, { source: "A4", target: "Q1", value: 2, qtd: null }, { source: "A4", target: "Q2", value: 2, qtd: null }, { source: "A4", target: "Q3", value: 3, qtd: null }, { source: "A4", target: "Q4", value: 3, qtd: null }, { source: "A4", target: "Q5", value: 3, qtd: null }, { source: "A4", target: "Q6", value: 3, qtd: null }, { source: "A4", target: "Q7", value: 1, qtd: null }, { source: "A4", target: "Q8", value: 3, qtd: null }, { source: "A4", target: "Q9", value: 3, qtd: null }, { source: "A4", target: "Q10", value: 2, qtd: null }, { source: "A5", target: "Q1", value: 3, qtd: null }, { source: "A5", target: "Q2", value: 2, qtd: null }, { source: "A5", target: "Q3", value: 2, qtd: null }, { source: "A5", target: "Q4", value: 1, qtd: null }, { source: "A5", target: "Q5", value: 2, qtd: null }, { source: "A5", target: "Q6", value: 2, qtd: null }, { source: "A5", target: "Q7", value: 3, qtd: null }, { source: "A5", target: "Q8", value: 1, qtd: null }, { source: "A5", target: "Q9", value: 3, qtd: null }, { source: "A5", target: "Q10", value: 3, qtd: null }, { source: "A6", target: "Q1", value: 2, qtd: null }, { source: "A6", target: "Q2", value: 3, qtd: null }, { source: "A6", target: "Q3", value: 1, qtd: null }, { source: "A6", target: "Q4", value: 3, qtd: null }, { source: "A6", target: "Q5", value: 3, qtd: null }, { source: "A6", target: "Q6", value: 1, qtd: null }, { source: "A6", target: "Q7", value: 3, qtd: null }, { source: "A6", target: "Q8", value: 2, qtd: null }, { source: "A6", target: "Q9", value: 3, qtd: null }, { source: "A6", target: "Q10", value: 3, qtd: null }, { source: "A7", target: "Q1", value: 3, qtd: null }, { source: "A7", target: "Q2", value: 1, qtd: null }, { source: "A7", target: "Q3", value: 2, qtd: null }, { source: "A7", target: "Q4", value: 2, qtd: null }, { source: "A7", target: "Q5", value: 2, qtd: null }, { source: "A7", target: "Q6", value: 1, qtd: null }, { source: "A7", target: "Q7", value: 3, qtd: null }, { source: "A7", target: "Q8", value: 1, qtd: null }, { source: "A7", target: "Q9", value: 2, qtd: null }, { source: "A7", target: "Q10", value: 2, qtd: null }, { source: "A8", target: "Q1", value: 1, qtd: null }, { source: "A8", target: "Q2", value: 3, qtd: null }, { source: "A8", target: "Q3", value: 2, qtd: null }, { source: "A8", target: "Q4", value: 1, qtd: null }, { source: "A8", target: "Q5", value: 2, qtd: null }, { source: "A8", target: "Q6", value: 3, qtd: null }, { source: "A8", target: "Q7", value: 1, qtd: null }, { source: "A8", target: "Q8", value: 1, qtd: null }, { source: "A8", target: "Q9", value: 2, qtd: null }, { source: "A8", target: "Q10", value: 2, qtd: null }, { source: "A9", target: "Q1", value: 3, qtd: null }, { source: "A9", target: "Q2", value: 3, qtd: null }, { source: "A9", target: "Q3", value: 2, qtd: null }, { source: "A9", target: "Q4", value: 2, qtd: null }, { source: "A9", target: "Q5", value: 1, qtd: null }, { source: "A9", target: "Q6", value: 2, qtd: null }, { source: "A9", target: "Q7", value: 2, qtd: null }, { source: "A9", target: "Q8", value: 3, qtd: null }, { source: "A9", target: "Q9", value: 2, qtd: null }, { source: "A9", target: "Q10", value: 3, qtd: null }, { source: "A10", target: "Q1", value: 2, qtd: null }, { source: "A10", target: "Q2", value: 3, qtd: null }, { source: "A10", target: "Q3", value: 1, qtd: null }, { source: "A10", target: "Q4", value: 2, qtd: null }, { source: "A10", target: "Q5", value: 3, qtd: null }, { source: "A10", target: "Q6", value: 3, qtd: null }, { source: "A10", target: "Q7", value: 3, qtd: null }, { source: "A10", target: "Q8", value: 3, qtd: null }, { source: "A10", target: "Q9", value: 2, qtd: null }, { source: "A10", target: "Q10", value: 2, qtd: null }, { source: "Q1", target: "K1", value: 1, qtd: 1 }, { source: "Q1", target: "K1", value: 2, qtd: 5 }, { source: "Q1", target: "K1", value: 3, qtd: 4 }, { source: "Q2", target: "K2", value: 1, qtd: 1 }, { source: "Q2", target: "K2", value: 2, qtd: 3 }, { source: "Q2", target: "K2", value: 3, qtd: 6 }, { source: "Q3", target: "K2", value: 1, qtd: 4 }, { source: "Q3", target: "K2", value: 2, qtd: 4 }, { source: "Q3", target: "K2", value: 3, qtd: 2 }, { source: "Q4", target: "K3", value: 1, qtd: 2 }, { source: "Q4", target: "K3", value: 2, qtd: 4 }, { source: "Q4", target: "K3", value: 3, qtd: 4 }, { source: "Q5", target: "K1", value: 1, qtd: 1 }, { source: "Q5", target: "K1", value: 2, qtd: 5 }, { source: "Q5", target: "K1", value: 3, qtd: 4 }, { source: "Q6", target: "K3", value: 1, qtd: 3 }, { source: "Q6", target: "K3", value: 2, qtd: 2 }, { source: "Q6", target: "K3", value: 3, qtd: 5 }, { source: "Q7", target: "K2", value: 1, qtd: 3 }, { source: "Q7", target: "K2", value: 2, qtd: 2 }, { source: "Q7", target: "K2", value: 3, qtd: 5 }, { source: "Q8", target: "K3", value: 1, qtd: 3 }, { source: "Q8", target: "K3", value: 2, qtd: 4 }, { source: "Q8", target: "K3", value: 3, qtd: 3 }, { source: "Q9", target: "K2", value: 1, qtd: 2 }, { source: "Q9", target: "K2", value: 2, qtd: 5 }, { source: "Q9", target: "K2", value: 3, qtd: 3 }, { source: "Q10", target: "K1", value: 1, qtd: 0 }, { source: "Q10", target: "K1", value: 2, qtd: 6 }, { source: "Q10", target: "K1", value: 3, qtd: 4 }]
+const links = [
+    {
+        source: "A1",
+        target: "Q1",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q2",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q3",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q4",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q5",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q6",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q7",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q8",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q9",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A1",
+        target: "Q10",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q1",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q2",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q3",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q4",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q5",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q6",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q7",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q8",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q9",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A2",
+        target: "Q10",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q1",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q2",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q3",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q4",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q5",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q6",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q7",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q8",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q9",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A3",
+        target: "Q10",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q1",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q2",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q3",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q4",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q5",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q6",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q7",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q8",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q9",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A4",
+        target: "Q10",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q1",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q2",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q3",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q4",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q5",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q6",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q7",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q8",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q9",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A5",
+        target: "Q10",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q1",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q2",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q3",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q4",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q5",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q6",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q7",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q8",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q9",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A6",
+        target: "Q10",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q1",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q2",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q3",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q4",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q5",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q6",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q7",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q8",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q9",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A7",
+        target: "Q10",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q1",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q2",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q3",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q4",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q5",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q6",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q7",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q8",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q9",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A8",
+        target: "Q10",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q1",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q2",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q3",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q4",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q5",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q6",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q7",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q8",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q9",
+        value: 2,
+        qtd: null
+    },
+    {
+        source: "A9",
+        target: "Q10",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q1",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q2",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q3",
+        value: 1,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q4",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q5",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q6",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q7",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q8",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q9",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "A10",
+        target: "Q10",
+        value: 3,
+        qtd: null
+    },
+    {
+        source: "Q1",
+        target: "K1",
+        value: 1,
+        qtd: 0
+    },
+    {
+        source: "Q1",
+        target: "K1",
+        value: 2,
+        qtd: 4
+    },
+    {
+        source: "Q1",
+        target: "K1",
+        value: 3,
+        qtd: 6
+    },
+    {
+        source: "Q2",
+        target: "K2",
+        value: 1,
+        qtd: 1
+    },
+    {
+        source: "Q2",
+        target: "K2",
+        value: 2,
+        qtd: 3
+    },
+    {
+        source: "Q2",
+        target: "K2",
+        value: 3,
+        qtd: 6
+    },
+    {
+        source: "Q3",
+        target: "K2",
+        value: 1,
+        qtd: 4
+    },
+    {
+        source: "Q3",
+        target: "K2",
+        value: 2,
+        qtd: 3
+    },
+    {
+        source: "Q3",
+        target: "K2",
+        value: 3,
+        qtd: 3
+    },
+    {
+        source: "Q4",
+        target: "K3",
+        value: 1,
+        qtd: 1
+    },
+    {
+        source: "Q4",
+        target: "K3",
+        value: 2,
+        qtd: 2
+    },
+    {
+        source: "Q4",
+        target: "K3",
+        value: 3,
+        qtd: 7
+    },
+    {
+        source: "Q5",
+        target: "K1",
+        value: 1,
+        qtd: 1
+    },
+    {
+        source: "Q5",
+        target: "K1",
+        value: 2,
+        qtd: 5
+    },
+    {
+        source: "Q5",
+        target: "K1",
+        value: 3,
+        qtd: 4
+    },
+    {
+        source: "Q6",
+        target: "K3",
+        value: 1,
+        qtd: 1
+    },
+    {
+        source: "Q6",
+        target: "K3",
+        value: 2,
+        qtd: 2
+    },
+    {
+        source: "Q6",
+        target: "K3",
+        value: 3,
+        qtd: 7
+    },
+    {
+        source: "Q7",
+        target: "K2",
+        value: 1,
+        qtd: 3
+    },
+    {
+        source: "Q7",
+        target: "K2",
+        value: 2,
+        qtd: 2
+    },
+    {
+        source: "Q7",
+        target: "K2",
+        value: 3,
+        qtd: 5
+    },
+    {
+        source: "Q8",
+        target: "K3",
+        value: 1,
+        qtd: 3
+    },
+    {
+        source: "Q8",
+        target: "K3",
+        value: 2,
+        qtd: 4
+    },
+    {
+        source: "Q8",
+        target: "K3",
+        value: 3,
+        qtd: 3
+    },
+    {
+        source: "Q9",
+        target: "K2",
+        value: 1,
+        qtd: 2
+    },
+    {
+        source: "Q9",
+        target: "K2",
+        value: 2,
+        qtd: 4
+    },
+    {
+        source: "Q9",
+        target: "K2",
+        value: 3,
+        qtd: 4
+    },
+    {
+        source: "Q10",
+        target: "K1",
+        value: 1,
+        qtd: 0
+    },
+    {
+        source: "Q10",
+        target: "K1",
+        value: 2,
+        qtd: 4
+    },
+    {
+        source: "Q10",
+        target: "K1",
+        value: 3,
+        qtd: 6
+    }
+]
 
 let maxNode = 0;
 let minNode = 0;
@@ -179,7 +960,7 @@ function mapSankey(nodes, links, width, height, mod) {
                 node?.sourceLinks.forEach((link, i) => {
                     const prevLink = node?.sourceLinks[i - 1];
                     if (i === 0) {
-                        link.x0 = node.x0 + mod;
+                        link.x0 = node.x0 + mod * 3;
                         if (link.qtd == null)
                             link.y0 = node.y0 + strokeFactor;
                         else
@@ -189,7 +970,7 @@ function mapSankey(nodes, links, width, height, mod) {
                             link.x0 = prevLink.x0;
                             link.y0 = prevLink.y0;
                         } else {
-                            link.x0 = node.x0 + mod;
+                            link.x0 = node.x0 + mod * 3;
                             if (link.qtd == null)
                                 link.y0 = prevLink.y0 + mod;
                             else
@@ -270,15 +1051,42 @@ function mapSankey(nodes, links, width, height, mod) {
 
     // Iterar sobre os grupos de nós
     const groups = Object.values(nodeGroups);
+    const tams = [];
+    const tamsQ = [];
+    const tamsK = [];
+
+    nodes.filter(node => node.id[0] == 'A').forEach(node => {
+        let tam = new Set();
+        node.sourceLinks.forEach(link => {
+            tam.add(link.value);
+        })
+        tams.push(tam.size);
+    });
+    nodes.filter(node => node.id[0] == 'Q').forEach(node => {
+        const tam = [];
+        node.targetLinks.forEach(link => {
+            tam.push(link.value);
+        })
+        tamsQ.push(tam.length);
+    });
+    nodes.filter(node => node.id[0] == 'K').forEach(node => {
+        const tam = [];
+        node.targetLinks.forEach(link => {
+            tam.push(link.qtd);
+        })
+
+        tamsK.push(tam.reduce((acc, val) => acc + val, 0));
+    });
 
     groups.forEach((group, index) => {
         const x = (index === 0) ? x0 : (index === 1) ? x1 : x2;
         let y0 = 0;
 
         // Iterar sobre os nós do grupo
-        group.forEach(node => {
+        group.forEach((node, i) => {
             const isK = node.id[0] == 'K';
             const isQ = node.id[0] == 'Q';
+
             const linksQtd = () => {
                 let count = 0;
                 if (node?.sourceLinks) {
@@ -299,53 +1107,60 @@ function mapSankey(nodes, links, width, height, mod) {
             }
 
             if (isQ) {
-                let height = 0;
+                const heightLast = height - (tamsQ.reduce((acc, val) => acc + val, 0) * mod);
+
+                let auxHeight = 0;
 
                 if (node.sourceLinks) {
                     node.sourceLinks.sort((a, b) => a.value - b.value).forEach((link, i) => {
                         if (i === 0 || link.value !== node.sourceLinks[i - 1].value) {
-                            height += link.qtd * mod;
+                            auxHeight += link.qtd * mod;
                         }
                     });
                 }
 
-                const y1 = y0 + height;
+                const y1 = y0 + tamsQ[i] * mod;
 
-                node.x0 = x;
-                node.x1 = x + mod;
+                node.x0 = x - mod;
+                node.x1 = x + mod * 2;
                 node.y0 = y0;
                 node.y1 = y1;
 
-                y0 = y1 + mod; // Adicionando gap de 10 entre os nós
+                y0 = y1 + heightLast / (group.length - 1);
 
             } else if (isK) {
-                let height = 0;
+                const heightLast = height - (tamsK.reduce((acc, val) => acc + val, 0) * mod);
+
+                let auxHeight = 0;
                 if (node.targetLinks)
                     node.targetLinks.forEach(link => {
-                        height += link.qtd * mod
+                        auxHeight += link.qtd * mod
                     })
 
-                const y1 = y0 + height;
+                const y1 = y0 + tamsK[i] * mod;
 
-                node.x0 = x;
+                node.x0 = x - mod * 2;
                 node.x1 = x + mod;
                 node.y0 = y0;
                 node.y1 = y1;
 
-                y0 = y1 + mod; // Adicionando gap de 10 entre os nós
+                y0 = y1 + heightLast / (group.length - 1);
 
             }
             else {
-                const y1 = y0 + linksQtd() * mod;
+                //Here is the firts nodes 
+                const heightLast = height - (tams.reduce((acc, val) => acc + val, 0) * mod);
+
+                const y1 = y0 + tams[i] * mod;
 
                 // Atualizar os valores dos nós
                 node.x0 = x;
-                node.x1 = x + mod;
+                node.x1 = x + mod * 3;
                 node.y0 = y0;
                 node.y1 = y1;
 
                 // Atualizar y0 para o próximo nó e considerar o gap
-                y0 = y1 + mod; // Adicionando gap de 10 entre os nós
+                y0 = y1 + heightLast / (group.length - 1);
             }
         });
     });
@@ -567,7 +1382,7 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
 
             nodeGroups.filter(n => {
                 return link.source === n || link.target === n;
-            }).style("opacity", "0.7");
+            }).style("opacity", "0.75");
 
             const node = (link.target.id[0] == "Q") ? link.target : link.source;
 
@@ -781,7 +1596,7 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
 
     function handleNodeMouseOut(d) {
         d3.select(this)
-            .style("opacity", "0.7");
+            .style("opacity", "0.75");
 
         handleCloseDetail()
 
@@ -795,7 +1610,7 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
         // Destacar os nós relacionados ao nó
         const posNodes = nodeGroups.filter(n => {
             return n === node || links.some(link => link.source === node && link.target === n || link.target === node && link.source === n);
-        }).style("opacity", "0.7");
+        }).style("opacity", "0.75");
 
         const selectedLinksData = selectedLinks._groups[0].map(link => link.__data__)
 
@@ -829,7 +1644,7 @@ function drawSankey(nodes, links, filteredNodes, filteredLinks) {
 
             nodeGroups.filter(n => {
                 return finalNodes.includes(n);
-            }).style("opacity", "0.7");
+            }).style("opacity", "0.75");
         })
         // // Ocultar o tooltip
         details.style("opacity", 0);
